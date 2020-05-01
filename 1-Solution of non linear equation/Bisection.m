@@ -1,30 +1,33 @@
+fprintf("Bisection Method\n");
 exp=input("Enter expression: ",'s');
 f=inline(exp);
 
-a=input("Enter lower bound: ");
-b=input("Enter upper bound: ");
-tol=input("Enter the allowed error: ");
-while f(a)*f(b)<0
+Lower=input("Enter Lower bound: ");
+Upper=input("Enter Upper bound: ");
+T=input("Enter the allowed error: ");
+while Lower>Upper || f(Lower)*f(Upper)<0
     fprintf("Incorrect Bounds!\n");
-    a=input("Enter lower bound: ");
-    b=input("Enter upper bound: ");
+    Lower=input("Enter Lower bound: ");
+    Upper=input("Enter Upper bound: ");
 end
 xnew(1)=0;
 for i=2:1000
-    c=(a+b)/2;
-    if f(a)*f(c)<0
-        a=c;
+    Mid=(Lower+Upper)/2;
+    if f(Lower)*f(Mid)<0
+        Lower=Mid;
     else
-        b=c;
+        Upper=Mid;
     end
-    if f(b)*f(c)<0
-        b=c;
+    if f(Upper)*f(Mid)<0
+        Upper=Mid;
     else
-        a=c;
+        Lower=Mid;
     end
-xnew(i)=c;
-if abs((xnew(i)-xnew(i-1))/xnew(i))<tol,break,end
+xnew(i)=Mid;
+if abs((xnew(i)-xnew(i-1))/xnew(i))<T
+    break
+end
 end
 format long
 %str = ['The required root of the equation is: ', num2str(c), ''];
-fprintf("The required root of the equation is: %f",num2str(c));
+fprintf("The required root of the equation is: %f",num2str(Mid));
