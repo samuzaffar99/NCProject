@@ -17,3 +17,4 @@ for i = 1:N
 		fprintf("Solution did not fit within tolerance parameters\n");
 	end
 end
+fprintf("%f %f\n",x,err);

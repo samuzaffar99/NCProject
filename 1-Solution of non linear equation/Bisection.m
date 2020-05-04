@@ -24,10 +24,9 @@ for i=2:1000
         Lower=Mid;
     end
 xnew(i)=Mid;
-if abs((xnew(i)-xnew(i-1))/xnew(i))<T
+err(i)=abs((xnew(i)-xnew(i-1))/xnew(i));
+if err<T
     break
 end
 end
-format long
-%str = ['The required root of the equation is: ', num2str(c), ''];
 fprintf("The required root of the equation is: %f",num2str(Mid));
