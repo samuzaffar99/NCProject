@@ -1,4 +1,5 @@
 fprintf("Bisection Method\n");
+
 N=1000;
 Lower=zeros(N);
 Upper=zeros(N);
@@ -17,8 +18,8 @@ T=input("Enter the allowed error: ");
 
 while Lower(1)>Upper(1) || f(Lower(1))*f(Upper(1))>0
     fprintf("Incorrect Bounds!\n");
-    Lower=input("Enter Lower bound: ");
-    Upper=input("Enter Upper bound: ");
+    Lower(1)=input("Enter Lower bound: ");
+    Upper(1)=input("Enter Upper bound: ");
 end
 
 Err(1)=0;
