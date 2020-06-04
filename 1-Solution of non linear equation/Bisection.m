@@ -8,6 +8,7 @@ FLower=zeros(N);
 FUpper=zeros(N);
 FMid=zeros(N);
 Err=zeros(N);
+nitr=N;
 
 exp=input("Enter expression: ",'s');
 f=str2func(['@(x)' exp]);
@@ -23,7 +24,7 @@ while Lower(1)>Upper(1) || f(Lower(1))*f(Upper(1))>0
 end
 
 Err(1)=0;
-nitr=0;
+
 for i=1:N
 	fprintf("Iteration: %d\n",i);
 	Mid(i)=(Lower(i)+Upper(i))/2;
@@ -38,12 +39,16 @@ for i=1:N
 	if(i~=1)
 		Err(i)=abs((Mid(i)-Mid(i-1)));
 		if Err(i)<T
+			fprintf("The required root of the equation is: %f\n",Mid(i));
 			nitr=i;
 			break
 		end
 	end
 	
-	
+	if i==N
+		fprintf("Solution did not fit within tolerance parameters\n");
+		break;
+	end
 	
 	if ((FLower(i)*FMid(i))<0)
 		Upper(i+1)=Mid(i);
@@ -52,9 +57,10 @@ for i=1:N
 		Lower(i+1)=Mid(i);
 		Upper(i+1)=Upper(i);
 	end
+	
 end
 
-fprintf("The required root of the equation is: %f\n",Mid(i));
+
 Lower=transpose(Lower(1:nitr));
 Upper=transpose(Upper(1:nitr));
 Mid=transpose(Mid(1:nitr));
