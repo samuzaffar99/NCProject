@@ -5,7 +5,7 @@ x=zeros(N);
 Fx=zeros(N);
 Fdx=zeros(N);
 Err=zeros(N);
-nitr=0;
+nitr=N;
 
 exp=input("Enter expression: ",'s');
 f=str2func(['@(x)' exp]);
@@ -36,7 +36,6 @@ for i=1:N
 	
 	x(i+1)=x(i)-((Fx(i)/Fdx(i)));
 end
-
 
 x=transpose(x(1:nitr));
 Fx=transpose(Fx(1:nitr));

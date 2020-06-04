@@ -60,7 +60,6 @@ for i=1:N
 	
 end
 
-
 Lower=transpose(Lower(1:nitr));
 Upper=transpose(Upper(1:nitr));
 Mid=transpose(Mid(1:nitr));
