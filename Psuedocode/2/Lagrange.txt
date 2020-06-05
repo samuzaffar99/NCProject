@@ -1,0 +1,37 @@
+Output "Enter the degree of interpolating polynomials"
+Input n
+
+For i=1:n+1 Do
+    Output "Enter the value for x(val)",val
+    Input promptx
+	x(i) = input(promptx);
+	Output "Enter the value for y(val)",val
+    Input prompty
+	y(i) = input(prompty);
+End For
+
+Output "Enter the value for x to interpolate"
+
+calc1 = 1;
+calc2 = 1;
+Answer = 0; 
+index = 1;
+
+For i=1:n+1 Do
+    For j=1:n+1 Do
+        If(index~=i)
+            calc1 = calc1 * (c - x(index))
+            calc2 = calc2 * (x(i) - x(index))
+            index = index + 1;
+        Else
+            index = index + 1;
+        End
+    End For
+    index = 1; 
+    calc3 = (calc1/calc2) * y(i);
+    Answer = Answer + calc3;
+    calc1= 1;
+    calc2 = 1;
+End For
+
+Output Answer

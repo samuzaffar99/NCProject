@@ -1,0 +1,27 @@
+Output "Enter the Equation"
+Input eq
+Output "Enter the Equation for actual solution"
+Input eq2
+
+Output "Enter the start of the range"
+Input s
+Output "Enter the end of the range"
+Input e
+
+Output "Enter the step"
+Input h
+Output "Enter the initial value"
+Input i
+
+yprev=i
+
+Output "Midpoint Error"
+
+For t=s:h:e-h Do
+    y0 = yprev
+    y = y0 + h*eq(t+(h/2),y0+((h/2)*eq(t,y0)))
+    yprev = y
+    y2 = eq2(t+h,y0)
+    error = abs(y2-y)
+    Output t+h,y,y2,error
+End For

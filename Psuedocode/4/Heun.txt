@@ -1,0 +1,27 @@
+Output "Enter the Equation"
+Input eq
+Output "Enter the Equation for the actual solution"
+Input eq2
+
+Output "Enter the start of the range"
+Input s
+Output "Enter the end of the range"
+Input e
+
+Output "Enter the step"
+Input h
+Output "Enter the initial value"
+Input i
+
+yprev=i
+
+Output "Heun Error"
+
+For t=s:h:e-h Do
+    y0 = yprev
+    y = y0 + (h/4)*(eq(t,y0)+3*eq(t+(2*h/3),y0+((2*h/3)*eq(t+(h/3),y0+(h/3)*eq(t,y0)))))
+    yprev = y
+    y2 = eq2(t+h,y0)
+    error = abs(y2-y)
+    Output t+h,y,y2,error
+End For

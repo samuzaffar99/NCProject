@@ -1,0 +1,28 @@
+Output "Enter the Equation F(x)"
+Input eq
+
+Output "Enter the lower limit"
+Input a
+Output "Enter the upper limit"
+Input b
+
+Output "Enter the number of subintervals"
+Input n
+
+delta_x = (b-a)/n
+calc = 0 
+temp = a
+
+For i=0:n Do
+    If (i==0 || i==n)
+        calc = calc + eq(temp)
+        temp = temp + delta_x
+    Else
+        calc = calc + 2*eq(temp)
+        temp = temp + delta_x
+    End
+For End
+
+Ans = (delta_x/2) * calc
+
+Output Ans

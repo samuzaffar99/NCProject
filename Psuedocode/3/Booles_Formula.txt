@@ -1,0 +1,27 @@
+Output "Enter the Equation F(x)"
+Input eq
+
+Output "Enter the lower limit"
+Input a
+Output "Enter the upper limit"
+Input b
+
+n = 4
+delta_x = (b-a)/n
+x = a
+calc = 0
+
+For i=0:n Do
+  y = f(x)
+  If(i==0 || i==4)
+      calc = calc + 7*y
+  Else If (i==1 || i==3)
+      calc = calc + 32*y
+  Else
+      calc = calc + 12*y
+  End For
+  x = x + delta_x
+End
+Ans = (2/45)*delta_x*calc
+
+Output Ans
