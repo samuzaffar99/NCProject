@@ -1,0 +1,54 @@
+Output "Enter expression"
+Input exp
+
+Output "Enter Lower bound"
+Input Lower
+Ouput "Enter Upper bound"
+Input Upper
+
+while Lower(1)>Upper(1) || f(Lower(1))*f(Upper(1))>0
+    Output "Incorrect Bounds"
+    Output "Enter Lower bound"
+	Input Lower
+	Ouput "Enter Upper bound"
+	Input Upper
+End While
+
+Err(1)=0
+
+For i=1:N Do
+	Output "Iteration: ",i
+	Mid(i)=(Lower(i)+Upper(i))/2
+	FMid(i)=f(Mid(i))
+	FLower(i)=exp(Lower(i))
+	FUpper(i)=exp(Upper(i))
+	If (f(Mid(i))==0)
+		Output "The required root of the equation is: ",Mid(i)
+		nitr=i
+		break
+	End If
+	If(i~=1)
+		Err(i)=abs((Mid(i)-Mid(i-1)))
+		if Err(i)<T
+			Output "The required root of the equation is: ",Mid(i)
+			nitr=i
+			break
+		End If
+	End If
+	
+	If i==N
+		fprintf("Solution did not fit within tolerance parameters\n");
+		break;
+	End If
+	
+	If ((FLower(i)*FMid(i))<0)
+		Upper(i+1)=Mid(i)
+		Lower(i+1)=Lower(i)
+	Else
+		Lower(i+1)=Mid(i)
+		Upper(i+1)=Upper(i)
+	End If
+	
+End For
+
+Output Table

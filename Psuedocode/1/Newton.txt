@@ -1,0 +1,32 @@
+Output "Enter expression"
+Input f
+
+Output "Enter initial value"
+Input x
+Output "Enter the allowed error"
+Input T
+
+Err(1)=0
+
+For i=1:N Do
+	Fx(i)=f(x(i))
+	Fdx(i)=d(x(i))
+	
+	If(i~=1)
+		Err(i)=abs((x(i)-x(i-1)));
+		If Err(i)<=T
+			Output "The required root of the equation is: ",x(i)
+			nitr=i
+			break
+		End If
+	End If
+
+	If i==N
+		Output "Solution did not fit within tolerance parameters"
+		break
+	End If
+	
+	x(i+1)=x(i)-((Fx(i)/Fdx(i)))
+End For
+
+Output Table

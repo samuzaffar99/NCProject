@@ -1,0 +1,33 @@
+Output "Enter expression: "
+Input f
+
+Output "Enter Lower bound: "
+Input p0(1)
+Output "Enter Upper bound: "
+Input p1(1)
+Output "Enter the allowed error: "
+Input T
+
+Err(1)=0
+
+For i=1:N Do 
+	Fp0(i)=f(p0(i))
+	Fp1(i)=f(p1(i))
+	If(i~=1)
+		Err(i)=abs(p1(i)-p1(i-1))
+		If Err(i)<T
+			Output "The required root of the equation is: ",p1(i)
+			nitr=i
+			break
+		End If
+	End If
+	
+	If i==N
+		Output "Solution did not fit within tolerance parameters"
+		break
+	End If
+	p0(i+1)=p1(i)
+	p1(i+1)=p1(i)-Fp1(i)*((p1(i)-p0(i))/(Fp1(i)-Fp0(i)))
+End For
+
+Output Table
