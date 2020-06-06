@@ -1,3 +1,5 @@
+fprintf("Modified Eueler Method\n");
+
 eq = input(" Enter the Equation \n",'s');
 eq2 = input(" Enter the Equation for the actual solution \n",'s');
 f = str2func(['@(t,y)' eq]);
