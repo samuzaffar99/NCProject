@@ -28,6 +28,11 @@ for i=1:N
 			break;
 		end
 	end
+% 	if(Fp1(i)==0)
+% 		fprintf("The required root of the equation is: %f\n",p1(i));
+% 		nitr=i;
+% 		break
+% 	end
 	
 	if i==N
 		fprintf("Solution did not fit within tolerance parameters\n");

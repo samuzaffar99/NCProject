@@ -19,7 +19,6 @@ Err(1)=0;
 for i=1:N
 	Fx(i)=f(x(i));
 	Fdx(i)=d(x(i));
-	
 	if(i~=1)
 		Err(i)=abs((x(i)-x(i-1)));
 		if Err(i)<=T
@@ -28,7 +27,12 @@ for i=1:N
 			break;
 		end
 	end
-
+% 	if(Fx(i)==0)
+% 		fprintf("The required root of the equation is: %f\n",x(i));
+% 		nitr=i;
+% 		break
+% 	end
+	
 	if i==N
 		fprintf("Solution did not fit within tolerance parameters\n");
 		break;

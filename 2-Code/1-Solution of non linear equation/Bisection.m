@@ -31,11 +31,6 @@ for i=1:N
 	FMid(i)=f(Mid(i));
 	FLower(i)=f(Lower(i));
 	FUpper(i)=f(Upper(i));
-	if (f(Mid(i))==0)
-		fprintf("The required root of the equation is: %f\n",Mid(i));
-		nitr=i;
-		break
-	end
 	if(i~=1)
 		Err(i)=abs((Mid(i)-Mid(i-1)));
 		if Err(i)<T
@@ -44,6 +39,11 @@ for i=1:N
 			break
 		end
 	end
+% 	if(FMid(i)==0)
+% 		fprintf("The required root of the equation is: %f\n",Mid(i));
+% 		nitr=i;
+% 		break
+% 	end
 	
 	if i==N
 		fprintf("Solution did not fit within tolerance parameters\n");
