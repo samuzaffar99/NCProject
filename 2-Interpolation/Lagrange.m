@@ -1,3 +1,5 @@
+fprintf("Lagrange Interpolation\n");
+
 n = input("Enter the degree of interpolating polynomials \n");
 
 for i=1:n+1

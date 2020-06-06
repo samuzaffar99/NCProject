@@ -1,5 +1,7 @@
+fprintf("Backward Divided Difference\n");
+
 n = input(" Enter the number of data sets(values) \n");
-k= n;
+k = n;
 delta_y = cell(n,n-1);
 for i=1:n
     for j=1:n-1
@@ -12,7 +14,8 @@ for i=1:n
     prompty = sprintf("Enter the value for y(%d) \n",i-1);
     y(i) = input(prompty);
 end
-val= input(" Enter the value to estimate result\n");
+
+val = input(" Enter the value to estimate result\n");
 h = x(2)-x(1);
 u = (val-x(n))/h;
 A = y(n);

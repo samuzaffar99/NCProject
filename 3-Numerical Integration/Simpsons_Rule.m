@@ -1,3 +1,5 @@
+fprintf("Simpson's Rule\n");
+
 eq = input(" Enter the Equation F(x) \n",'s');
 f = str2func(['@(x)' eq]);
 
