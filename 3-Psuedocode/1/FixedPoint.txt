@@ -1,0 +1,37 @@
+Output "Secant Method"
+
+N=1000;
+x=zeros(N);
+Gx=zeros(N);
+Err=zeros(N);
+nitr=N;
+
+Output "Enter g(x): "
+Input exp
+
+Output "Enter inital Value: "
+Input x(1)
+Output "Enter the allowed error: "
+Input T
+
+Err(1)=0
+
+For i=1:N Do
+	Gx(i)=g(x(i))
+	If(i~=1)
+		Err(i)=abs(x(i)-x(i-1))
+		If Err(i)<T
+			Output "The required root of the equation is: ",x(i)
+			nitr=i
+			break
+		End If
+	End If
+	
+	If i==N
+		Output "Solution did not fit within tolerance parameters/Formula is Divergent"
+		break
+	End If
+	x(i+1)=Gx(i)
+End For
+
+Output Table

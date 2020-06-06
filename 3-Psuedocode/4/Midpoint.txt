@@ -13,15 +13,25 @@ Input h
 Output "Enter the initial value"
 Input i
 
-yprev=i
+n = (e-s)/h
+x = zeros(1,n)
+y = zeros(1,n)
+y2 = zeros(1,n)
+error = zeros(1,n)
+yprev = i
+itr = 1
 
 Output "Midpoint Error"
 
 For t=s:h:e-h Do
     y0 = yprev
-    y = y0 + h*eq(t+(h/2),y0+((h/2)*eq(t,y0)))
-    yprev = y
-    y2 = eq2(t+h,y0)
-    error = abs(y2-y)
-    Output t+h,y,y2,error
+    y(itr) = y0 + h*f(t+(h/2),y0+((h/2)*f(t,y0)))
+    yprev = y(itr)
+    y2(itr) = f2(t+h,y0)
+    error(itr) = abs(y2(itr)-y(itr))
+    x(itr) = t+h
+    itr = itr + 1
 End For
+
+Output Table
+Output Error
