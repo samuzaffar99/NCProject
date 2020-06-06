@@ -16,8 +16,8 @@ index = 1;
 for i=1:n+1
     for j=1:n+1
         if(index~=i)
-            calc1 = calc1 * (c - x(index))
-            calc2 = calc2 * (x(i) - x(index))
+            calc1 = calc1 * (c - x(index));
+            calc2 = calc2 * (x(i) - x(index));
             index = index + 1;
         else
             index = index + 1;
@@ -29,4 +29,4 @@ for i=1:n+1
     calc1= 1;
     calc2 = 1;
 end
-Answer
+fprintf("The estimated value for x is %f\n",Answer);
